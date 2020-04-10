@@ -3,6 +3,7 @@ import unittest
 from src.estimator import sample_input_data, estimator
 
 
+
 class TestEstimationOutput(unittest.TestCase):
 
     def setUp(self):

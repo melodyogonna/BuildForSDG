@@ -75,9 +75,9 @@ class TestApplication(unittest.TestCase):
         economic_loss = self.est.estimated_economic_money_loss
 
         self.assertEqual(economic_loss(
-            1.5), self.est.get_estimated_infections_for_days() * 0.65 * 1.5*self.est.request_period)
+            1.5, 0.65), (self.est.get_estimated_infections_for_days() * 0.65 * 1.5)/self.est.request_period)
         self.assertEqual(economic_loss(
-            1.5, severe=True), self.est.get_estimated_infections_for_days(severe=True)*0.65*1.5*self.est.request_period)
+            1.5, 0.65, severe=True), (self.est.get_estimated_infections_for_days(severe=True)*0.65*1.5)/self.est.request_period)
 
 
 if __name__ == '__main__':

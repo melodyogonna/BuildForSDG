@@ -77,12 +77,12 @@ class CovidEstimator:
 
         return int(ventilator_cases)
 
-    def estimated_economic_money_loss(self, average_income, severe: bool = False):
+    def estimated_economic_money_loss(self, average_income, average_income_population, severe: bool = False):
         if severe:
-            economic_loss = (self.get_estimated_infections_for_days(
-                severe=True) * 0.65*average_income*self.request_period)
+            economic_loss = ((self.get_estimated_infections_for_days(
+                severe=True) * average_income*average_income_population)/self.request_period)
         else:
-            economic_loss = (self.get_estimated_infections_for_days()
-                             * 0.65*average_income*self.request_period)
+            economic_loss = ((self.get_estimated_infections_for_days()
+                              * average_income*average_income_population)/self.request_period)
 
-        return economic_loss
+        return int(economic_loss)

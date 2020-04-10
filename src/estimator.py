@@ -60,9 +60,11 @@ def estimator(data: dict) -> dict:
         severe=True)
 
     average_income = data['region'].get('avgDailyIncomeInUSD', 1)
+    average_income_population = data['region'].get(
+        'avgDailyIncomePopulation', .00)
     output_data['impact']['dollarsInFlight'] = covid_estimator.estimated_economic_money_loss(
-        average_income)
+        average_income, average_income_population)
     output_data['severeImpact']['dollarsInFlight'] = covid_estimator.estimated_economic_money_loss(
-        average_income, severe=True)
+        average_income, average_income_population, severe=True)
 
     return output_data
