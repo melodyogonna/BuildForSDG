@@ -1,0 +1,22 @@
+label {
+  color: #757575;
+}
+
+.estimation-result .output h6 {
+  font-weight: 600;
+  color: #333333;
+}
+
+.estimation-result .output span {
+  color: #757575;
+  font-size: .9rem;
+}
+
+.estimation-result h3 {
+  font-size: 1.4rem;
+}
+
+.estimation-result h5 {
+  font-size: 1.1rem;
+}
+/*# sourceMappingURL=main.css.map */

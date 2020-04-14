@@ -22,3 +22,4 @@ __pycache__/
 
 # when you use pytest editable
 covid19_estimator_py.egg-info/
+access.log

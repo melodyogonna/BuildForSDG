@@ -24,11 +24,12 @@ def estimator(data: dict) -> dict:
         'severeImpact': {}
     }
 
-    if data['periodType'] == 'days':
+    periodtype = data.get('periodType', 'days')
+    if periodtype == 'days':
         requested_days = data.get('timeToElapse', 1)
-    elif data['periodType'] == 'weeks':
+    elif periodtype == 'weeks':
         requested_days = convert_week_to_days(data.get('timeToElapse', 1))
-    elif data['periodType'] == 'months':
+    elif periodtype == 'months':
         requested_days = convert_month_to_days(data.get('timeToElapse', 1))
 
     covid_estimator = CovidEstimator(days=requested_days)
