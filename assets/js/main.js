@@ -3,6 +3,7 @@ const vue = new Vue({
     data: {
         returnedOutput: null,
         loading: false,
+        BACKENDURL: '',
 
         regionName: '',
         avgDailyIncome: '',
@@ -16,6 +17,14 @@ const vue = new Vue({
     methods: {
         submit() {
             this.loading = true;
+
+            const DEBUG = false;
+            if (DEBUG) {
+                this.BACKENDURL = 'http://127.0.0.1:8080/api/v1/on-covid-19/'
+            }
+            else {
+                this.BACKENDURL = 'http://teamnaijacrawl.pythonanywhere.com/api/v1/on-covid-19/'
+            }
             const data = {
                 region: {
                     name: this.regionName,
@@ -29,7 +38,7 @@ const vue = new Vue({
                 totalHospitalBeds: parseInt(this.totalHospitalBeds) || 0
             }
 
-            fetch('http://127.0.0.1:8080/api/v1/on-covid-19/', {
+            fetch(this.BACKENDURL, {
                 method: 'post',
                 mode: 'cors',
                 body: JSON.stringify(data),
