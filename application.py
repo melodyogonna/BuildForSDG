@@ -12,7 +12,7 @@ from src.estimator import estimator, sample_input_data
 
 
 def create_xml_from_json(json_data: dict):
-    'Generate xml from json. Doesn\'t work properly yet'
+    '''Generate xml from json. Doesn\'t work properly yet'''
     document = minidom.Document()
     rootElement = document.appendChild(
         document.createElement('covid-19-estimate'))
